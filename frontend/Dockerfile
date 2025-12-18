@@ -9,13 +9,17 @@ RUN npm install
 COPY frontend ./
 RUN npm run build
 
-# Production stage with Nginx
-FROM nginx:alpine
+# Production stage (NO nginx)
+FROM node:20-alpine
 
-COPY --from=build /app/dist /usr/share/nginx/html
-# For Create React App use: /app/build
+WORKDIR /app
+
+# Install static file server
+RUN npm install -g serve
+
+# Copy build output
+COPY --from=build /app/dist ./dist
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
-
+CMD ["serve", "-s", "dist", "-l", "80"]
