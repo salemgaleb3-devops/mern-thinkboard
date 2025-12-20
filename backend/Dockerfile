@@ -5,11 +5,11 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Install backend deps
-COPY backend/package*.json ./
+COPY package*.json ./
 RUN npm install
 
 # Copy all backend code
-COPY backend ./
+COPY ..
 
 # Make port available
 EXPOSE 5000
