@@ -9,7 +9,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy all backend code
-COPY ..
+COPY . .
 
 # Make port available
 EXPOSE 5000
