@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_USER = "salemgaleb"
-        IMAGE_NAME = "${DOCKER_USER}/repo-name:${BUILD_NUMBER}"
+        DOCKERHUB_USER = "salemghaleb"
         DOCKER_CREDENTIALS = "dockerhub-creds"   
     }
 
@@ -22,23 +21,40 @@ pipeline {
             steps {
                 script {
                     echo "Bulilding Docker Images..."
-                    sh "docker build -t ${IMAGE_NAME} ./backend"
-                    sh "docker build -t ${IMAGE_NAME} ./frontend"
+                    sh "docker build -t salemghaleb/mern-backend:${BUILD_NUMBER} ./backend"
+                    sh "docker build -t salemghaleb/mern-frontend:${BUILD_NUMBER} ./frontend"
                 
 
                 }
             }
         }
+
+        stage('Docker Login') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: DOCKER_CREDENTIALS,
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )
+                ]) {
+                    sh """
+                        echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
+                    """
+                }
+            }
+        }
+        stage('Push Image to Docker Hub') {
+            steps {
+                script {
+                    echo "Pushing image to Docker Hub..."
+                    sh "docker push salemghaleb/mern-backend:${BUILD_NUMBER}"
+                    sh "docker push salemghaleb/mern-frontend:${BUILD_NUMBER}"
+                }
+            }
+        }
+
     }
-
-
-
-
-
-
-
-
-
 
 
 
