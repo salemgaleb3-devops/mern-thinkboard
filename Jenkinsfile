@@ -53,8 +53,26 @@ pipeline {
                 }
             }
         }
+        stage('Trigger ManifestUpdate') {
+            steps {
+                echo "Triggering update manifest job..."
+                build job: 'k8supdatemanifest',
+                      parameters: [
+                        string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)
+                      [
+            }
+        }
 
     }
+    post {
+        success {
+            echo "Pipeline executed successfully! 🎉"
+        }
+        failure {
+            echo "Pipeline failed ❌"
+        }
+    }
+
 
 
 
