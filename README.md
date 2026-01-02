@@ -1,45 +1,180 @@
-<h1 align="center">📝 MERN Stack Note Taking App ✨</h1>
+🚀 MERN ThinkBoard – Complete DevOps Pipeline on Kubernetes
+This project demonstrates a production-grade DevOps pipeline for a MERN application, covering the full lifecycle from source code to deployment and observability on Kubernetes, fully automated using modern DevOps tools.
+It is designed as a portfolio-ready project to showcase real-world DevOps skills including CI/CD, GitOps, containerization, Kubernetes, and monitoring.
 
-![Demo App](/frontend/public/screenshot-for-readme.png)
+🧠 Project Overview
 
-Highlights:
+The goal of this project is to:
 
-- 🧱 Full-Stack App Built with the MERN Stack (MongoDB, Express, React, Node)
-- ✨ Create, Update, and Delete Notes with Title & Description
-- 🛠️ Build and Test a Fully Functional REST API
-- ⚙️ Rate Limiting with Upstash Redis — a Real-World Concept Explained Simply
-- 🚀 Completely Responsive UI
-- 🌐 Explore HTTP Methods, Status Codes & SQL vs NoSQL
-- 📦 Deployment Guide Included — Add the Live App to Your Resume
-- 📚 Designed for Absolute Beginners
+Automate application build and Docker image creation
 
----
+Push images securely to Docker Hub
 
-## 🧪 .env Setup
+Apply GitOps principles using Argo CD
 
-### Backend (`/backend`)
+Deploy the application to a Kubernetes cluster
 
-```
-MONGO_URI=<your_mongo_uri>
+Monitor the cluster and application using Prometheus & Grafana
 
-UPSTASH_REDIS_REST_URL=<your_redis_rest_url>
-UPSTASH_REDIS_REST_TOKEN=<your_redis_rest_token>
+Run everything on cloud infrastructure (AWS)
 
-NODE_ENV=development
-```
+🏗️ Architecture Diagram
+/docs/screenshots/architecture.png
+Description:
+This diagram illustrates the full DevOps workflow, from GitHub commits to Kubernetes deployment and monitoring
+🧰 Tech Stack
+Application
 
-## 🔧 Run the Backend
+Frontend: React
 
-```
-cd backend
-npm install
-npm run dev
-```
+Backend: Node.js (Express)
 
-## 💻 Run the Frontend
+Database: MongoDB
 
-```
-cd frontend
-npm install
-npm run dev
-```
+DevOps & Cloud
+
+CI/CD: Jenkins
+
+Containerization: Docker
+
+Container Registry: Docker Hub
+
+Orchestration: Kubernetes (kubeadm on EC2)
+
+GitOps: Argo CD
+
+Monitoring: Prometheus & Grafana
+
+Cloud Provider: AWS (EC2)
+📂 Repositories Structure
+🔹 Application Repository
+
+📎 https://github.com/salemgaleb3-devops/mern-thinkboard.git
+
+Contains:
+
+MERN application source code
+
+Backend Dockerfile
+
+Application logic
+
+🔹 Kubernetes Manifests Repository (GitOps)
+
+📎 https://github.com/salemgaleb3-devops/k8s-yaml-mern-thinkboard.git
+
+Contains:
+
+Kubernetes manifests
+
+Deployment, Service, Ingress
+
+Monitoring configuration
+🔄 CI/CD Pipeline Workflow
+1️⃣ Code Commit (GitHub)
+
+Developer pushes code to the mern-thinkboard repository.
+🔄 CI/CD Pipeline Workflow
+1️⃣ Code Commit (GitHub)
+
+Developer pushes code to the mern-thinkboard repository.
+/docs/screenshots/github-repo.png
+2️⃣ Jenkins CI Pipeline
+
+Jenkins performs the following automatically:
+
+Clones the application repository
+
+Builds Docker image from Dockerfile
+
+Pushes image to Docker Hub
+
+Triggers update in Kubernetes manifests repository
+
+📸 Jenkins Pipeline Screenshot
+/docs/screenshots/jenkins-pipeline.png
+3️⃣ Docker Image Build & Push
+
+Image built using a multi-layer Dockerfile
+
+Tagged and pushed to Docker Hub
+
+📸 Docker Hub Image Screenshot
+/docs/screenshots/dockerhub-image.png
+4️⃣ GitOps with Argo CD
+
+Argo CD watches the Kubernetes manifests repository
+
+Automatically syncs changes
+
+Deploys updated application to the cluster
+
+📸 Argo CD Application View
+/docs/screenshots/argocd-app.png
+☸️ Kubernetes Deployment
+
+Application deployed as Kubernetes Deployment
+
+Services expose backend and frontend
+
+Ingress manages external access
+
+📸 Kubernetes Pods & Services
+/docs/screenshots/k8s-pods.png
+📊 Monitoring & Observability
+🔹 Prometheus
+
+Scrapes metrics from:
+
+Kubernetes cluster
+
+Nodes
+
+📸 Prometheus Targets
+/docs/screenshots/prometheus-targets.png
+🔹 Grafana
+
+Preconfigured dashboards for:
+
+Cluster health
+
+Node performance
+
+Application metrics (HTTP requests, latency, errors)
+
+📸 Grafana Dashboards
+/docs/screenshots/grafana-dashboard.png
+☁️ Cloud Infrastructure (AWS)
+
+EC2 instances used for Kubernetes nodes
+
+kubeadm-based cluster
+
+All components run in the cloud
+
+📸 AWS EC2 Instances
+/docs/screenshots/aws-ec2.png
+🔐 Security & Best Practices
+
+Secrets managed via Kubernetes Secrets
+
+GitOps ensures immutable deployments
+
+Separation of application code and infrastructure
+
+Automated CI/CD with minimal manual intervention
+
+🎯 Key DevOps Concepts Demonstrated
+
+✔ CI/CD automation
+✔ Docker image lifecycle
+✔ GitOps (Argo CD)
+✔ Kubernetes production patterns
+✔ Monitoring & observability
+✔ Cloud-native architecture
+
+👨‍💻 Author
+
+Salem Bamakhraam
+DevOps Engineer
+GitHub: https://github.com/salemgaleb3-devops
