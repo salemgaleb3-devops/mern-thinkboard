@@ -21,7 +21,7 @@ The goal of this project is to:
 
 ## 🏗️ Architecture Diagram
 
-![image alt](](/frontend/public/screenshots/Diagram.drawio.png)
+![image alt](/frontend/public/screenshots/Diagram.drawio.png)
 
 **Description:**  
 This diagram illustrates the full DevOps workflow, from GitHub commits to Kubernetes deployment and monitoring.
