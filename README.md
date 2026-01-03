@@ -91,7 +91,7 @@ Jenkins performs the following automatically:
 
 📸 **Jenkins Pipeline Screenshot**
 
-![image alt](/frontend/public/screenshots/github-repo.png)
+![image alt](/frontend/public/screenshots/jenkins-pipeline.png)
 ---
 
 ### 3️⃣ Docker Image Build & Push
