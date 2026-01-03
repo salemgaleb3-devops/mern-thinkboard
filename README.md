@@ -21,7 +21,7 @@ The goal of this project is to:
 
 ## 🏗️ Architecture Diagram
 
-![image alt](/frontend/public/screenshots/Diagram.drawio.png)
+![image alt](/frontend/public/screenshots/Diagram-drawio.png)
 
 
 **Description:**  
@@ -77,6 +77,7 @@ Developer pushes code to the `mern-thinkboard` repository.
 
 📸 **Screenshot:**
 
+![image alt](/frontend/public/screenshots/github-repo.png)
 ---
 
 ### 2️⃣ Jenkins CI Pipeline
@@ -90,6 +91,7 @@ Jenkins performs the following automatically:
 
 📸 **Jenkins Pipeline Screenshot**
 
+![image alt](/frontend/public/screenshots/github-repo.png)
 ---
 
 ### 3️⃣ Docker Image Build & Push
@@ -99,15 +101,26 @@ Jenkins performs the following automatically:
 
 📸 **Docker Hub Image Screenshot**
 
+![image alt](/frontend/public/screenshots/dockerhub-image-backend.png)
+![image alt](/frontend/public/screenshots/dockerhub-image-frontend.png)
+
 ---
 
+### 4️⃣ GitOps with Argo CD
+
+- Argo CD watches the Kubernetes manifests repository
+- Automatically syncs changes
+- Deploys updated application to the cluster
+
+📸 Argo CD Application View
+
+![image alt](/frontend/public/screenshots/argocd-app.png)
+---
 ## ☸️ Kubernetes Deployment
 
 - Application deployed as Kubernetes Deployment
 - Services expose backend and frontend
 - Ingress manages external access
-
-📸 **Kubernetes Pods & Services**
 
 ---
 
@@ -119,10 +132,6 @@ Scrapes metrics from:
 - Kubernetes cluster
 - Nodes
 
-📸 **Prometheus Targets**
-
----
-
 ### 🔹 Grafana
 
 Preconfigured dashboards for:
@@ -132,6 +141,7 @@ Preconfigured dashboards for:
 
 📸 **Grafana Dashboards**
 
+![image alt](/frontend/public/screenshots/grafana-dashboard.png)
 ---
 
 ## ☁️ Cloud Infrastructure (AWS)
@@ -142,6 +152,7 @@ Preconfigured dashboards for:
 
 📸 **AWS EC2 Instances**
 
+![image alt](/frontend/public/screenshots/aws-ec2.png)
 ---
 
 ## 🔐 Security & Best Practices
